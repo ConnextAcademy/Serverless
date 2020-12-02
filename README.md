@@ -1,4 +1,4 @@
-# aws-serverless-tutorial
+# AWS Serverless Tutorial
 
 In this tutorial we will be creating a serverless function with AWS Lambda.
 
