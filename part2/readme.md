@@ -20,22 +20,22 @@ Now go to the console > s3 to verify your bucket exists.
 The dependencies need to be wrapped with your function code in a zip archive. Dependencies can be installed in a subdirectory called `python/`. Poetry can not do this (easily) but pip can:
 * `poetry run pip feeze > requirements.txt`
 * `poetry run pip install -r requirements.txt -t python`
-* `zip -q part2.zip -r .`
+* `zip -q lambda.zip -r .`
 
 Now upload the zip file to your bucket using either
 * the console
-* `aws s3 cp part2.zip s3://<your-bucket-name>`
+* `aws s3 cp lambda.zip s3://<your-bucket-name>`
 
 
 ### Deploy lambda
-Go to the console > Lambda and to your previously build function. Under 'Function code' choose 'Actions > Upload a file form Amazon S3' and specify the path `s3://<your-bucket-name>/part2.zip`.
+Go to the console > Lambda and to your previously build function. Under 'Function code' choose 'Actions > Upload a file form Amazon S3' and specify the path `s3://<your-bucket-name>/lambda.zip`.
 
 Under 'Runtime settings' adjust the handler to `handler.handle` and in 'Environment variables' set `BUCKET = <your-bucket-name>`.
 
 Now test your code, e.g. from the console with a test event like:
 ```json
 {
-  "file": "part2.zip"
+  "body": "lambda.zip"
 }
 ```
 

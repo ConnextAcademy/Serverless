@@ -7,7 +7,7 @@ def handle(event: dict, context: dict) -> dict:
     print(f"Received event: {json.dumps(event)}")
 
     bucket_name = getenv("BUCKET")
-    file_name = event["file"] if "file" in event else ""
+    file_name = event["body"] if "body" in event else "-missing-"
 
     found = "" if file_exists(bucket_name, file_name) else "NOT "
 
