@@ -19,7 +19,7 @@ def handle(event: dict, context: dict) -> dict:
     }
 ``` 
 
-Now we have changed the function name i.e. the handler used when the function is invoked. Update the `Runtime settings` accordingly.
+Click on `deploy` to save the new function. Now we have changed the function name i.e. the handler used when the function is invoked. Update the `Runtime settings` accordingly.
 
 Last thing: under `Monitoring tools` activate AWS X-Ray.
 

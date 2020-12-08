@@ -6,7 +6,7 @@ For this part of the tutorial we'll assume all steps of the [prerequisites](../p
 ### Build resources
 We'll build simple Lambda function, similar as in part 1, but with the addition of a dependency. The runtime environment in AWS Lambda comes with some batteries included but if you want to control your own dependencies or versions you'll have to package them with your Lambda code in a zip archive.
 
-Start a python project inside [this folder](./part2) using the following command:
+Start a python project inside this folder using the following command:
 * `poetry init` -> initialise the project, answer the questions about dependencies with 'no'
 * `poetry env use ~/.pyenv/versions/3.8.6/bin/python3.8` -> set the python version for your project
 * `poetry add boto3` -> install the boto3 dependency (boto is the official AWS SDK for python) 
@@ -18,13 +18,13 @@ The example script [`handler.py`](./handler.py), together with a function from [
 Now go to the console > s3 to verify your bucket exists.
 
 The dependencies need to be wrapped with your function code in a zip archive. Dependencies can be installed in a subdirectory called `python/`. Poetry can not do this (easily) but pip can:
-* `poetry run pip feeze > requirements.txt`
+* `poetry run pip freeze > requirements.txt`
 * `poetry run pip install -r requirements.txt -t python`
 * `zip -q lambda.zip -r .`
 
 Now upload the zip file to your bucket using either
-* the console
-* `aws s3 cp lambda.zip s3://<your-bucket-name>`
+* the web console (navigate to your bucket and hit 'Upload')
+* the cli on your machine (use this command: `aws s3 cp lambda.zip s3://<your-bucket-name>`)
 
 
 ### Deploy lambda

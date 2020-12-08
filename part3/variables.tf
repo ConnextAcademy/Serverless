@@ -1,7 +1,7 @@
 variable region {
   type        = string
   description = "Preferred AWS region to deploy resources"
-  default     = "eu-central-1"
+  default     = "eu-west-1"
 }
 
 variable bucket {

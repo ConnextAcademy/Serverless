@@ -17,7 +17,7 @@ Please open [the main config file](./main.tf) and try to understand what resourc
 * The IAM role which the lambda function(s) will assume + required policies
 * A lambda similar to the one from part 2
 * Another lambda which we'll use as authorizer for the API calls. Our API module requires an authorizer to be used, here we'll use a very simple lambda which accept all calls.
-* An API with 1 path (/tutorial) and 1 method (GET) 
+* An API with 1 path (/tutorial) and 1 method (POST) 
 
 ### Build resources
 #### initialise
