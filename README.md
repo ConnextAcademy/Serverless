@@ -17,3 +17,6 @@ The tutorial consists of 3 parts:
 3. Deploy a Lambda function using Terraform
 
 We aim to finish the tutorial in 1 hour. This is assuming every participant has successfully finished the [prerequisites](./prerequisites.md). 
+
+### clean up afterwards
+Don't forget to destroy your resources in AWS at the end to avoid incurring unnecessary costs!
