@@ -27,7 +27,7 @@ data aws_iam_policy_document assume_role {
 }
 
 resource aws_iam_role lambda {
-  name               = "tutorial-lambda-role-${var.bucket}"  # must be unique within the account
+  name               = "tutorial-lambda-role-${var.bucket}" # must be unique within the account
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
@@ -73,7 +73,7 @@ module lambda {
     BUCKET = var.bucket
   }
 
-  role_numbers     = { LMB = 1, API = 1, LOG = 1}
+  role_numbers     = { LMB = 1, API = 1, LOG = 1 }
   tagging_defaults = local.tagging_defaults
 }
 
@@ -108,22 +108,22 @@ module authorizer {
 module api_gateway {
   source = "git::ssh://git@github.com/ConnectHolland/terraform-aws-api-gateway.git?ref=tags/0.2.1"
 
-  description    = "Tutorial api"
-  name           = "tutorial-api-${var.bucket}"
-  endpoint_types = ["REGIONAL"]
-  stage          = "dev"
-  paths          = ["tutorial"]
-  http_methods   = ["POST"]
+  description            = "Tutorial api"
+  name                   = "tutorial-api-${var.bucket}"
+  endpoint_types         = ["REGIONAL"]
+  stage                  = "dev"
+  paths                  = ["tutorial"]
+  http_methods           = ["POST"]
   lambda_invoke_arn_list = [module.lambda.invoke_arn]
 
   CORS_allow_methods = "'OPTIONS,POST'"
   CORS_allow_origin  = "'*'"
 
-  authorizer_type      = "REQUEST"
+  authorizer_type = "REQUEST"
   authorizer_uri  = module.authorizer.invoke_arn
-  enable_xray          = true
+  enable_xray     = true
 
-  role_numbers = module.authorizer.role_numbers
+  role_numbers     = module.authorizer.role_numbers
   tagging_defaults = local.tagging_defaults
 }
 

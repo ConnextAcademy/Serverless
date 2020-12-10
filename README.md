@@ -11,12 +11,14 @@ This tutorial will touch upon the following services and topics:
 * Python
 * Terraform
 
-The tutorial consists of 3 parts:
+The tutorial consists of 3 main parts and a bonus:
 1. Deploy a basic Lambda function via the AWS console
 2. Create a Lamba function locally and deploy using S3
 3. Deploy a Lambda function using Terraform
+4. Bonus challenge
 
-We aim to finish the tutorial in 1 hour. This is assuming every participant has successfully finished the [prerequisites](./prerequisites.md). 
+We aim to finish the first 3 parts in 1 hour. This is assuming every participant has successfully finished the [prerequisites](./prerequisites.md). 
+
 
 ### clean up afterwards
 Don't forget to destroy your resources in AWS at the end to avoid incurring unnecessary costs!

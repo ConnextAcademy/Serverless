@@ -5,16 +5,16 @@ variable region {
 }
 
 variable bucket {
-  type = string
+  type        = string
   description = "Bucket name containing the lambda"
 }
 
 variable lambda_file {
-  type = string
+  type        = string
   description = "Lambda file name"
 }
 
 variable lambda_function_name {
-  type = string
+  type        = string
   description = "Lambda function name"
 }
