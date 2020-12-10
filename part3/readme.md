@@ -42,7 +42,7 @@ If you're confortable with the plan you can run `terraform apply` to create the 
 
 ### Call API
 Now we can call the API endpoint which terraform showed upon finishing the plan:
-`curl <endpoint> -d "lambda.zip"`
+`curl -XPOST <endpoint> -d "lambda.zip"`
 
 Now go to Cloudwatch and check in the Lambda log what the event received from Api Gateway looks like.
 
